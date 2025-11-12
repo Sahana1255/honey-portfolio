@@ -1,13 +1,42 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>honey-portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- Page title & description (SEO) -->
+    <title>Honey — Developer Portfolio</title>
+    <meta name="description" content="Honey — Front-end developer. Clean, accessible React + Tailwind portfolio showcasing projects, skills, and contact." />
+
+    <!-- Open Graph (social previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Honey — Developer Portfolio" />
+    <meta property="og:description" content="Clean, accessible front-end portfolio built with React and Tailwind. See projects, skills, and contact." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://honey-portfolio-gilt.vercel.app" />
+    <meta property="og:site_name" content="Honey Portfolio" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Honey — Developer Portfolio" />
+    <meta name="twitter:description" content="Clean, accessible front-end portfolio built with React and Tailwind." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- canonical -->
+    <link rel="canonical" href="https://honey-portfolio-gilt.vercel.app" />
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/favicon-192.png" />
+
+    <!-- preconnect for fonts if you add them later -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+
+    <!-- Vite entry -->
+    <script type="module" src="/src/main.tsx"></script>
   </head>
+
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
