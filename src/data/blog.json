@@ -1,0 +1,16 @@
+[
+  {
+    "id": "b1",
+    "title": "Designing for Accessibility",
+    "date": "2025-08-14",
+    "excerpt": "Quick wins and best practices to make your interfaces usable for everyone.",
+    "slug": "designing-for-accessibility"
+  },
+  {
+    "id": "b2",
+    "title": "Performance Tips for React",
+    "date": "2025-06-02",
+    "excerpt": "Small optimizations that yield big speed wins in production.",
+    "slug": "performance-tips-react"
+  }
+]
