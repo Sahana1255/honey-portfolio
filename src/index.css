@@ -3,7 +3,7 @@
    ----------------------------------------------------------
    Includes theme variables, dark/light mode defaults,
    base resets, Tailwind directives, reveal animations,
-   smooth scrolling, and small UI utilities.
+   smooth scrolling, microcopy helpers, and small UI utilities.
 ----------------------------------------------------------- */
 
 /* --- Theme Variables --- */
@@ -175,7 +175,7 @@ button:focus-visible {
    - .reveal-stagger used to stagger children
 ----------------------------------------------------------- */
 
-/* Respect reduced motion */
+/* Respect reduced motion (global) */
 @media (prefers-reduced-motion: reduce) {
   :root { scroll-behavior: auto; }
   .reveal, .reveal-revealed, .reveal-stagger, .fade-in-up {
@@ -183,6 +183,12 @@ button:focus-visible {
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
+  }
+  /* reduce microcopy animations too */
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
 
@@ -216,6 +222,12 @@ button:focus-visible {
 
 /* Small utility class for fallback */
 .revealed { opacity: 1 !important; transform: none !important; }
+
+/* microcopy helper used by Hero (smooth show/hide) */
+.hero-microcopy {
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+  will-change: opacity, transform;
+}
 
 /* small responsive tweaks */
 @media (max-width: 640px) {

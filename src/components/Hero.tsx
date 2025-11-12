@@ -1,10 +1,34 @@
+import { useEffect, useState } from "react";
+import Confetti from "./Confetti";
+
 export default function Hero() {
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showMicrocopy, setShowMicrocopy] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+    const reduced = mq && mq.matches;
+
+    const shown = sessionStorage.getItem("hp_confetti_shown");
+    if (!shown && !reduced) {
+      setShowConfetti(true);
+      sessionStorage.setItem("hp_confetti_shown", "1");
+      setTimeout(() => setShowConfetti(false), 1800);
+    }
+
+    // show microcopy slightly after load (but skip if reduced motion)
+    setTimeout(() => setShowMicrocopy(true), reduced ? 0 : 700);
+  }, []);
+
   return (
     <section
       id="hero"
       className="pt-24 min-h-screen flex items-center bg-[var(--color-bg)] text-[var(--color-text)]"
       aria-label="Hero section"
     >
+      {/* Confetti (respects prefers-reduced-motion inside Confetti component) */}
+      {showConfetti && <Confetti />}
+
       <div className="max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-12">
         {/* Left: text */}
         <div className="w-full lg:w-7/12 text-center lg:text-left">
@@ -36,6 +60,16 @@ export default function Hero() {
             >
               Get In Touch
             </a>
+          </div>
+
+          {/* Microcopy — subtle, friendly */}
+          <div
+            className={`mt-4 text-sm text-gray-400 dark:text-gray-300 transition-all duration-700 ease-out transform ${
+              showMicrocopy ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+            }`}
+            aria-hidden={!showMicrocopy}
+          >
+            Welcome — click <a href="#contact" className="underline text-[color:var(--color-accent)]">Get in Touch</a> to send a quick message!
           </div>
 
           <div className="mt-8 text-sm text-gray-500 dark:text-gray-400">
