@@ -1,0 +1,32 @@
+[
+  {
+    "id": "alpha",
+    "title": "Project Alpha",
+    "subtitle": "Landing page with micro-interactions",
+    "description": "A performance-first landing page with custom animations, optimized images, and A/B-ready hero variations.",
+    "image": "/assets/images/project-1-1200x800.webp",
+    "tech": ["React", "Tailwind", "Vite"],
+    "demo": "#",
+    "repo": "#"
+  },
+  {
+    "id": "dash",
+    "title": "Dashboard UI",
+    "subtitle": "Admin dashboard component kit",
+    "description": "Reusable dashboard components with accessible keyboard navigation and a11y-first design.",
+    "image": "/assets/images/project-2-1200x800.webp",
+    "tech": ["React", "TypeScript", "Tailwind"],
+    "demo": "#",
+    "repo": "#"
+  },
+  {
+    "id": "shop",
+    "title": "Shop Landing",
+    "subtitle": "Promo site for conversion",
+    "description": "Fast e-commerce promo landing with lazy-loaded media and schema-based product previews.",
+    "image": "/assets/images/project-3-1200x800.webp",
+    "tech": ["React", "SSR Ready", "Tailwind"],
+    "demo": "#",
+    "repo": "#"
+  }
+]

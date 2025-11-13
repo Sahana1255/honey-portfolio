@@ -1,0 +1,14 @@
+[
+  {
+    "id": "t1",
+    "name": "Aisha R.",
+    "role": "Product Manager",
+    "text": "Honey delivered a beautiful, accessible UI and the performance results were exceptional."
+  },
+  {
+    "id": "t2",
+    "name": "Dev Studio",
+    "role": "Client",
+    "text": "Fast, responsive and ship-ready code — clear communication and quick iterations."
+  }
+]
