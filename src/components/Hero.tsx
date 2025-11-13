@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="pt-24 min-h-screen flex items-center bg-[var(--color-bg)] text-[var(--color-text)]"
+      className="pt-0 min-h-screen flex items-center bg-[var(--color-bg)] text-[var(--color-text)]"
       aria-label="Hero section"
     >
       {/* Confetti (respects prefers-reduced-motion inside Confetti component) */}
@@ -37,7 +37,7 @@ export default function Hero() {
           </p>
 
           <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-            Hi, I’m <span className="text-[color:var(--color-accent)]">Honey</span> 👋
+            Hi, I'm <span className="text-[color:var(--color-accent)]">Honey</span> 👋
           </h1>
 
           <p className="mt-4 text-lg text-gray-400 dark:text-gray-300 max-w-xl">
@@ -55,7 +55,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#contact"
+              href="#contact-form"
               className="inline-block px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 font-semibold"
             >
               Get In Touch
@@ -69,7 +69,7 @@ export default function Hero() {
             }`}
             aria-hidden={!showMicrocopy}
           >
-            Welcome — click <a href="#contact" className="underline text-[color:var(--color-accent)]">Get in Touch</a> to send a quick message!
+            Welcome — click <a href="#contact-form" className="underline text-[color:var(--color-accent)]">Get in Touch</a> to send a quick message!
           </div>
 
           <div className="mt-8 text-sm text-gray-500 dark:text-gray-400">
@@ -79,19 +79,66 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: mock screenshot / avatar */}
+        {/* Right: Code/Design Visual */}
         <div className="w-full lg:w-5/12 flex justify-center lg:justify-end">
-          <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-xl border border-gray-700">
-            <div className="bg-gradient-to-br from-[color:var(--color-accent)] to-[color:var(--color-accent-hover)] p-8">
-              <div className="h-48 rounded-lg bg-white/10 flex items-center justify-center">
-                {/* Placeholder visual — replace with an image in public/assets */}
-                <div className="text-white text-lg font-semibold">Project mockup</div>
+          <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-xl border border-gray-700 bg-gradient-to-br from-[color:var(--color-accent)]/10 to-purple-500/10">
+            {/* Code Preview Header */}
+            <div className="bg-[color:var(--btn-bg)] border-b border-gray-700 px-4 py-2 flex items-center gap-2">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div className="w-3 h-3 rounded-full bg-green-400"></div>
               </div>
+              <div className="text-xs text-gray-400 ml-2">portfolio.tsx</div>
             </div>
-            <div className="p-4 bg-[color:var(--btn-bg)]">
-              <div className="flex items-center justify-between text-sm text-gray-300">
-                <div>Project Alpha</div>
-                <div className="text-xs text-gray-400">React • Tailwind</div>
+
+            {/* Code Content */}
+            <div className="p-6 font-mono text-sm">
+              <div className="text-gray-300 mb-4">
+                <span className="text-purple-400">const</span>{" "}
+                <span className="text-[color:var(--color-accent)]">Developer</span>{" "}
+                <span className="text-gray-400">= {"{"}</span>
+              </div>
+              
+              <div className="ml-4 text-gray-300 space-y-2">
+                <div>
+                  <span className="text-amber-300">name</span>
+                  <span className="text-gray-400">: </span>
+                  <span className="text-green-400">"Honey"</span>
+                  <span className="text-gray-400">,</span>
+                </div>
+                <div>
+                  <span className="text-amber-300">role</span>
+                  <span className="text-gray-400">: </span>
+                  <span className="text-green-400">"Frontend Developer"</span>
+                  <span className="text-gray-400">,</span>
+                </div>
+                <div>
+                  <span className="text-amber-300">skills</span>
+                  <span className="text-gray-400">: [</span>
+                  <span className="text-cyan-400">"React"</span>
+                  <span className="text-gray-400">, </span>
+                  <span className="text-cyan-400">"TypeScript"</span>
+                  <span className="text-gray-400">, </span>
+                  <span className="text-cyan-400">"Tailwind"</span>
+                  <span className="text-gray-400">],</span>
+                </div>
+                <div>
+                  <span className="text-amber-300">passion</span>
+                  <span className="text-gray-400">: </span>
+                  <span className="text-green-400">"Creating amazing web experiences"</span>
+                </div>
+              </div>
+
+              <div className="text-gray-300 mt-4">
+                <span className="text-gray-400">{"};"}</span>
+              </div>
+
+              {/* Animated cursor */}
+              <div className="flex items-center mt-6">
+                <span className="text-gray-400">$</span>
+                <span className="ml-2 text-gray-300">npm run dev</span>
+                <div className="ml-1 w-2 h-4 bg-[color:var(--color-accent)] animate-pulse"></div>
               </div>
             </div>
           </div>

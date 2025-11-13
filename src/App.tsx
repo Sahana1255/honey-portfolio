@@ -1,3 +1,4 @@
+// src/App.tsx
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -8,7 +9,9 @@ import BlogPreview from "./components/BlogPreview";
 import ContactForm from "./components/ContactForm";
 import Reveal from "./components/Reveal";
 
-// 🎨 Main App Component
+/**
+ * Main App
+ */
 export default function App() {
   return (
     <div
@@ -30,8 +33,8 @@ export default function App() {
           <About />
         </Reveal>
 
-        {/* 🧠 Skills Section */}
-        <Reveal stagger>
+        {/* 🧠 Skills Section (stagger children) */}
+        <Reveal stagger={true}>
           <Skills />
         </Reveal>
 

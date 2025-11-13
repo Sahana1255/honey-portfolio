@@ -6,19 +6,20 @@
    smooth scrolling, microcopy helpers, and small UI utilities.
 ----------------------------------------------------------- */
 
-/* --- Theme Variables --- */
+/* --- Theme Variables (LIGHT MODE as default) --- */
 :root {
   --font-sans: system-ui, Avenir, Helvetica, Arial, sans-serif;
   --line-height: 1.5;
   --font-weight: 400;
 
-  --color-text: rgba(255, 255, 255, 0.87);
-  --color-bg: #242424;
+  /* LIGHT MODE DEFAULT VALUES */
+  --color-text: #213547;
+  --color-bg: #ffffff;
   --color-accent: #646cff;
-  --color-accent-hover: #535bf2;
-  --btn-bg: #1a1a1a;
+  --color-accent-hover: #747bff;
+  --btn-bg: #f9f9f9;
 
-  color-scheme: light dark;
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -28,13 +29,29 @@
   --header-offset: 80px;
 }
 
-@media (prefers-color-scheme: light) {
+/* DARK MODE - activated when <html> has class="dark" */
+:root.dark {
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-bg: #242424;
+  --color-accent: #646cff;
+  --color-accent-hover: #535bf2;
+  --btn-bg: #1a1a1a;
+  color-scheme: dark;
+}
+
+/* Remove the conflicting media query - let JavaScript control the theme */
+/* @media (prefers-color-scheme: light) {
   :root {
     --color-text: #213547;
     --color-bg: #ffffff;
     --color-accent-hover: #747bff;
     --btn-bg: #f9f9f9;
   }
+} */
+
+/* Class-based dark-mode variables: applies when <html> has class="dark" */
+.dark {
+  /* These will inherit from :root.dark */
 }
 
 /* --- Base Resets & Defaults --- */
@@ -49,6 +66,7 @@
 /* Smooth page scrolling & anchor offset */
 html {
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 [id] {
   scroll-margin-top: var(--header-offset);
@@ -64,6 +82,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-feature-settings: "liga" 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Typography & interactive basics */
@@ -71,6 +90,7 @@ a {
   font-weight: 500;
   color: var(--color-accent);
   text-decoration: inherit;
+  transition: color 0.3s ease;
 }
 a:hover {
   color: var(--color-accent-hover);
@@ -97,8 +117,9 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: var(--btn-bg);
+  color: var(--color-text);
   cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s, transform 0.1s ease-in-out;
+  transition: border-color 0.25s, background-color 0.25s, transform 0.1s ease-in-out, color 0.25s;
 }
 button:hover {
   border-color: var(--color-accent);
