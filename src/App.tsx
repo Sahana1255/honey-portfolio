@@ -1,4 +1,5 @@
 // src/App.tsx
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -8,9 +9,12 @@ import Testimonials from "./components/Testimonials";
 import BlogPreview from "./components/BlogPreview";
 import ContactForm from "./components/ContactForm";
 import Reveal from "./components/Reveal";
+import BlogPost from "./pages/BlogPost";
+import NotFound from "./pages/NotFound";
+import ProjectDetails from "./pages/ProjectDetails";
 
 /**
- * Main App
+ * App with routing - This enables proper client-side routing with 404 handling
  */
 export default function App() {
   return (
@@ -18,48 +22,61 @@ export default function App() {
       className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300"
       style={{ fontFamily: "var(--font-sans)" }}
     >
-      {/* Fixed Navbar */}
       <Header />
 
-      {/* Main Page Sections */}
+      {/* Routes - This is where the magic happens */}
       <main className="pt-20">
-        {/* 👋 Hero Section */}
-        <Reveal>
-          <Hero />
-        </Reveal>
+        <Routes>
+          {/* Home route: All your existing sections */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Reveal>
+                  <Hero />
+                </Reveal>
 
-        {/* 📖 About Section */}
-        <Reveal>
-          <About />
-        </Reveal>
+                <Reveal>
+                  <About />
+                </Reveal>
 
-        {/* 🧠 Skills Section (stagger children) */}
-        <Reveal stagger={true}>
-          <Skills />
-        </Reveal>
+                <Reveal stagger={true}>
+                  <Skills />
+                </Reveal>
 
-        {/* 💼 Projects Section */}
-        <Reveal>
-          <ProjectsGrid />
-        </Reveal>
+                <Reveal>
+                  <ProjectsGrid />
+                </Reveal>
 
-        {/* 💬 Testimonials */}
-        <Reveal>
-          <Testimonials />
-        </Reveal>
+                <Reveal>
+                  <Testimonials />
+                </Reveal>
 
-        {/* 📰 Blog preview */}
-        <Reveal>
-          <BlogPreview />
-        </Reveal>
+                <Reveal>
+                  <BlogPreview />
+                </Reveal>
 
-        {/* 📬 Contact form */}
-        <Reveal>
-          <ContactForm />
-        </Reveal>
+                <Reveal>
+                  <ContactForm />
+                </Reveal>
+              </>
+            }
+          />
+
+          {/* Project details page */}
+          <Route path="/projects/:slug" element={<ProjectDetails />} />
+
+          {/* Blog post page */}
+          <Route path="/blog/:slug" element={<BlogPost />} />
+
+          {/* Contact page (optional standalone) */}
+          <Route path="/contact" element={<ContactForm />} />
+
+          {/* 404 - Catch all unknown routes */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
 
-      {/* 🌙 Footer */}
       <footer className="text-center py-8 border-t border-gray-700 bg-[color:var(--btn-bg)] text-gray-400 text-sm">
         © {new Date().getFullYear()} Honey Portfolio — Built with ❤️ using React
         & TailwindCSS
