@@ -12,7 +12,7 @@ export default function NotFound(): ReactElement {
         <h1 className="text-6xl font-extrabold mb-4">404</h1>
 
         <p className="mb-6 text-lg text-gray-400 dark:text-gray-300">
-          Oops — the page you’re looking for isn't here. But the portfolio is 😄
+          Oops — the page you're looking for isn't here. But the portfolio is 😄
         </p>
 
         <Link
